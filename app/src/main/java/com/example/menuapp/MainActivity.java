@@ -1,6 +1,10 @@
 package com.example.menuapp;
 
+
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -10,7 +14,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView txt;
+    private Button bt;
+    private Spinner sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,20 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txt = findViewById(R.id.txtView);
-        //this is new project.
+        bt.findViewById(R.id.btnGet);
+        sp.findViewById(R.id.spnTypes);
+
+
+        bindSpinner();
+
+    }
+
+    private void bindSpinner() {
+
+        DrinkMockupDA da = new DrinkMockupDA();
+        String[] arr = da.getDrinkTypes();
+        ArrayAdapter<String> spnAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,arr);
+
+        sp.setAdapter(spnAdapter);
     }
 }
