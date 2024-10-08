@@ -5,43 +5,109 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fadeScrollbars="false"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="37dp"
-        android:text="Select a Drink"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/spnTypes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
 
-    <Spinner
-        android:id="@+id/spnTypes"
-        android:layout_width="204dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="51dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnGet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtView" />
-
-    <Button
-        android:id="@+id/btnGet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="479dp"
-        android:text="Show"
+    <ImageButton
+        android:id="@+id/Profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="324dp"
+        android:layout_marginBottom="676dp"
+        android:contentDescription="Menu"
+        android:src="@drawable/iconimg"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnTypes" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="321dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="634dp"
+        android:text="Select a Drink"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spnTypes"
+        android:layout_width="206dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="561dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnGet"
+        android:background="?attr/selectableItemBackgroundBorderless"
+
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="112dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="296dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="561dp"
+        android:backgroundTint="#21CE10"
+        android:fadeScrollbars="true"
+        android:text="Show"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#431485"
+        android:textColorLink="#F40B0B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="677dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="1dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="323dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

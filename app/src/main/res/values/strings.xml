@@ -1,3 +1,7 @@
+
 <resources>
-    <string name="app_name">MenuApp</string>
+<string name="app_name">MenuApp</string>
+
+<string name="name">Omar Harb</string>
+<string name="bio">Omar Harb is a passionate Computer Science student with a deep interest in software development, algorithms, and technology innovation. He is skilled in a variety of programming languages and enjoys solving complex problems by applying logical thinking and creativity. Omar thrives in environments that challenge him, pushing him to expand his knowledge in areas such as artificial intelligence, machine learning, and data science. He has a particular enthusiasm for building impactful software projects and collaborating with others to bring ideas to life. Omar actively participates in coding competitions and tech-related events, where he sharpens his skills and learns from others in the community. Beyond academics, he loves experimenting with new technologies, working on side projects, and contributing to open-source initiatives. With a strong commitment to lifelong learning, Omar aims to make a meaningful contribution to the tech industry, particularly in areas that can enhance people\'s lives and bring about positive societal change. He aspires to become part of a team that drives innovation, where he can grow, contribute, and leave his mark on the technology landscape.</string>
 </resources>
