@@ -28,7 +28,7 @@ public class DrinkMockupDA {
 
     }
     public String[] getDrinkTypes(){
-        String[] types = {"Hot Drinks","Cold Drinks","sandwiches"};
+        String[] types = {"Hot Drinks","Cold Drinks","Sandwiches"};
         return types;
 
 
