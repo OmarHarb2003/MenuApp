@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txtView"
         android:layout_width="140dp"
         android:layout_height="86dp"
         android:text="Hello World!"
