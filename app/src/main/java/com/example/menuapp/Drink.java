@@ -2,16 +2,34 @@ package com.example.menuapp;
 
 public class Drink {
 
-    private String name ;
+
+
+    private String name;
+
 
     private double price;
-    private String type;
+    private String desc;
+    private int imageId;
 
+    public static final Drink[] drinks ={
 
-    public Drink(String name, double price, String type) {
+            new Drink("Black Coffe",5.0,"a black coffee",R.drawable.coffee)
+
+    };
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Drink(String name, double price,String desc, int imageId) {
         this.name = name;
         this.price = price;
-        this.type = type;
+        this.desc= desc;
+        this.imageId = imageId;
     }
 
     public Drink(){}
@@ -32,12 +50,21 @@ public class Drink {
         this.price = price;
     }
 
-    public String getType() {
-        return type;
+    public int ImageId() {
+        return imageId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "desc='" + desc + '\'' +
+                ", price=" + price +
+                ", name='" + name + '\'' +
+                '}';
     }
     public String toString(){
         return name +", "+ price;

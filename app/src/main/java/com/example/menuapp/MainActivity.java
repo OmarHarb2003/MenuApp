@@ -3,9 +3,11 @@ package com.example.menuapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,68 +22,43 @@ public class MainActivity extends AppCompatActivity {
     private TextView txt;
 
     private TextView txt2;
+    private ListView options;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        bt = findViewById(R.id.btnGet);
-        sp = findViewById(R.id.spnTypes);
-        txt = findViewById(R.id.textView2);
-        txt2 = findViewById(R.id.txtList);
+AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("myStringKey");
+        if (position==0){
 
-        txt.setText("Welcome " + name + "!");
+            Intent intent = new Intent(MainActivity.this, DrinkCat.class);
 
-        bindSpinner();
+            startActivity(intent);
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the selected drink type
-                String selectedType = sp.getSelectedItem().toString();
+        }
+    }
+};
+            options = findViewById(R.id.list_options);
 
-                // Create an instance of DrinkMockupDA to fetch drinks
-                DrinkMockupDA drinkMockupDA = new DrinkMockupDA();
-                List<Drink> drinks = drinkMockupDA.getDrinksByType(selectedType);
 
-                // Display the drinks in the TextView
-                if (drinks.isEmpty()) {
-                    txt2.setText("No " + selectedType+ " available for.");
-                } else {
-                    StringBuilder drinkNames = new StringBuilder("Available " +selectedType+":\n");
-                    for (Drink drink : drinks) {
-                        drinkNames.append(drink.getName())
-                                .append(" - $")
-                                .append(drink.getPrice())
-                                .append("\n");
-                    }
-                    txt2.setText(drinkNames.toString());
-                }
-            }
-        });
 
-        set = findViewById(R.id.Profile);
-        set.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to User Profile Activity
-                Intent intent = new Intent(MainActivity.this, UserProfile.class);
-                startActivity(intent);
-            }
-        });
+
+
+
+
+
+        options.setOnItemClickListener(itemClickListener);
+
+
+
+
     }
 
-    private void bindSpinner() {
-        DrinkMockupDA da = new DrinkMockupDA();
-        String[] arr = da.getDrinkTypes();
-        ArrayAdapter<String> spnAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arr);
-        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(spnAdapter);
-    }
+
 }

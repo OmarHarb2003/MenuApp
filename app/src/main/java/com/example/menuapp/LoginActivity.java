@@ -17,16 +17,19 @@ public class LoginActivity extends AppCompatActivity {
     EditText name;
     EditText pass;
     Button b;
+    Button b2;
+    UserDA users = new UserDA();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginlayout);
 
-
-        name = findViewById(R.id.name);
-        pass = findViewById(R.id.pass);
-        b = findViewById(R.id.buttonSign);
+        name = findViewById(R.id.name1);
+        pass = findViewById(R.id.pass1);
+        b= findViewById(R.id.signInBtn1);
+        b2= findViewById(R.id.signUpBtn1);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (checkUser(username,password)) {
 
 
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, DrinkCat.class);
 
                     intent.putExtra("myStringKey", username);
 
@@ -53,10 +56,21 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+
+                startActivity(intent);
+
+
+
+            }
+        });
     }
 
     private Boolean checkUser(String username,String password) {
-        UserDA users = new UserDA();
 
 
         return users.userNameFound(username,password);
