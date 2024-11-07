@@ -1,7 +1,22 @@
 
 <resources>
-<string name="app_name">MenuApp</string>
+        <string name="app_name">MenuApp</string>
+        <!-- Protein Bars Descriptions -->
+        <string name="bardesc1">Delicious chewy protein bars featuring caramel and nuts and coated in chocolate with six grams of protein per serving, along with two grams of sugar, and five grams of net carbs</string>
+        <string name="bardesc2">With real cookie crumbles and delicious white chocolate flavored chips, Americas favorite flavor can now be your favorite Quest Protein Bar! Keto-friendly.</string>
+        <string name="bardesc3">Chocolate peanut butter flavor protein bars are a powerful (and tasty) addition to your recovery regimen. They’ve got 20 grams of plant-based protein containing all the essential amino acids to build and repair muscles and they’re gluten free!</string>
 
-<string name="name">Omar Harb</string>
-<string name="bio">Omar Harb is a passionate Computer Science student with a deep interest in software development, algorithms, and technology innovation. He is skilled in a variety of programming languages and enjoys solving complex problems by applying logical thinking and creativity. Omar thrives in environments that challenge him, pushing him to expand his knowledge in areas such as artificial intelligence, machine learning, and data science. He has a particular enthusiasm for building impactful software projects and collaborating with others to bring ideas to life. Omar actively participates in coding competitions and tech-related events, where he sharpens his skills and learns from others in the community. Beyond academics, he loves experimenting with new technologies, working on side projects, and contributing to open-source initiatives. With a strong commitment to lifelong learning, Omar aims to make a meaningful contribution to the tech industry, particularly in areas that can enhance people\'s lives and bring about positive societal change. He aspires to become part of a team that drives innovation, where he can grow, contribute, and leave his mark on the technology landscape.</string>
+        <!-- Protein Powder Descriptions -->
+        <string name="pdesc1">32g of protein derived from milk per serving to help rebuild muscles after exercise, Excellent source of Calcium and Vitamins A, C &amp; D</string>
+        <string name="pdesc2">MusclePharm Combat Protein Powder is the ultimate choice for athletes who push their limits and expect nothing but the best from their high protein shakes. Each serving of Combat Protein Powder delivers a commanding 25 grams of protein, fueling your muscle to ensure your hard work and dedication yield real results.</string>
+        <string name="pdesc3">GOLD STANDARD 100% WHEY™ Protein powder supports muscle and post-workout recovery with 24g of quality protein and 5.5g of naturally occurring BCAAs per serving. It’s crafted to be a complete, fast-digesting protein with whey protein isolate as the primary source – a filtered form of whey that can support protein goals for people at every level of fitness – from daily runners and gym-goers to competitive strength athletes and everyone in between.</string>
+
+        <!-- Additional Descriptions -->
+        <string name="desc1">About this item\nNo Artificial Preservatives\nNo Artificial Flavors\nNo Artificial Colors\nGluten Free\nPlease Recycle.</string>
+        <string name="desc2">Protein Drink\nGluten free. Muscle milk provides nutrients found in natural milk\nHigh protein. Lactose free\nZero g of sugar\nExcellent source of Calcium and Vitamins A, C, &amp; D\n4 grams of fiber per serving\nEssential amino acids, including Leaucine, play a role in muscle growth</string>
+        <string name="desc3">Delicious, creamy milk chocolate flavor offers an optimal low-sugar mix of protein and essential vitamins and minerals. Thats why its the drink of chocolate-loving champions.</string>
+
+
+
+
 </resources>

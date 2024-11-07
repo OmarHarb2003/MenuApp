@@ -3,85 +3,67 @@ package com.example.menuapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button bt;
-    private Spinner sp;
-    private ImageButton set;
-    private TextView txt;
-
-    private TextView txt2;
-
+    private Spinner spnMenu;
+    private Button btnSearch;
+    private ListView options;
+    private ArrayAdapter<ProteinItems> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt = findViewById(R.id.btnGet);
-        sp = findViewById(R.id.spnTypes);
-        txt = findViewById(R.id.textView2);
-        txt2 = findViewById(R.id.txtList);
+        spnMenu = findViewById(R.id.spnMenu);
+        btnSearch = findViewById(R.id.searchBtn);
+        options = findViewById(R.id.list_options);
 
+        populateSpinner();
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("myStringKey");
-
-        txt.setText("Welcome " + name + "!");
-
-        bindSpinner();
-
-        bt.setOnClickListener(new View.OnClickListener() {
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the selected drink type
-                String selectedType = sp.getSelectedItem().toString();
+                MenuItems db = new MenuItems();
+                String type = spnMenu.getSelectedItem().toString();
+                List<ProteinItems> result = db.getMenuItems(type);
 
-                // Create an instance of DrinkMockupDA to fetch drinks
-                DrinkMockupDA drinkMockupDA = new DrinkMockupDA();
-                List<Drink> drinks = drinkMockupDA.getDrinksByType(selectedType);
-
-                // Display the drinks in the TextView
-                if (drinks.isEmpty()) {
-                    txt2.setText("No " + selectedType+ " available for.");
-                } else {
-                    StringBuilder drinkNames = new StringBuilder("Available " +selectedType+":\n");
-                    for (Drink drink : drinks) {
-                        drinkNames.append(drink.getName())
-                                .append(" - $")
-                                .append(drink.getPrice())
-                                .append("\n");
-                    }
-                    txt2.setText(drinkNames.toString());
-                }
+                adapter = new ArrayAdapter<>(MainActivity.this,
+                        android.R.layout.simple_list_item_1, result);
+                options.setAdapter(adapter);
             }
         });
 
-        set = findViewById(R.id.Profile);
-        set.setOnClickListener(new View.OnClickListener() {
+        options.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                // Navigate to User Profile Activity
-                Intent intent = new Intent(MainActivity.this, UserProfile.class);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ProteinItems selectedItem = (ProteinItems) parent.getItemAtPosition(position);
+
+                Intent intent = new Intent(MainActivity.this, Details.class);
+                intent.putExtra("name", selectedItem.getName());
+                intent.putExtra("price", selectedItem.getPrice());
+                intent.putExtra("desc", selectedItem.getDesc());
+                intent.putExtra("imageId", selectedItem.getImageId());
+
                 startActivity(intent);
             }
         });
     }
 
-    private void bindSpinner() {
-        DrinkMockupDA da = new DrinkMockupDA();
-        String[] arr = da.getDrinkTypes();
-        ArrayAdapter<String> spnAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arr);
-        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(spnAdapter);
+    private void populateSpinner() {
+        MenuItems db = new MenuItems();
+        String[] types = db.getTypes();
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, types);
+        spnMenu.setAdapter(spinnerAdapter);
     }
 }

@@ -13,53 +13,32 @@ public class SignupActivity extends AppCompatActivity {
     EditText name;
     EditText pass;
     Button b;
-    UserDA users = new UserDA();
-
+    UserDA users = LoginActivity.users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signuplayout);
 
-
-
+        name = findViewById(R.id.name1);
+        pass = findViewById(R.id.pass1);
+        b = findViewById(R.id.signUpBtn2);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String username = name.getText().toString().trim();
                 String password = pass.getText().toString().trim();
 
-
-                if (checkUser(username,password)) {
-
-
+                if (!users.usernameExists(username)) {
+                    users.addUser(username, password);
+                    Toast.makeText(SignupActivity.this, "Sign Up is Successful", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-
-                    users.addUser(username,password);
-
-
-
-
                     startActivity(intent);
-                    Toast.makeText(SignupActivity.this, "Sign Up is Successfull", Toast.LENGTH_LONG).show();
-
                 } else {
                     Toast.makeText(SignupActivity.this, "User already exists", Toast.LENGTH_LONG).show();
-
                 }
-
             }
         });
-    }
-
-    private Boolean checkUser(String username,String password) {
-        UserDA users = new UserDA();
-
-        return users.userNameFound(username,password);
-
-
-
     }
 }

@@ -10,11 +10,9 @@ public class UserDA {
 
     public UserDA(){
         users = new ArrayList<>();
-        users.add(new User("OHarb","o1234"));
-        users.add(new User("harb", "h1234"));
-        users.add(new User("nameless","name1234"));
-        users.add(new User("jojo","j101"));
-        users.add(new User("night","n2020"));
+        users.add(new User("omar","1210692"));
+        users.add(new User("name","123"));
+        users.add(new User("username", "password"));
 
     }
 
@@ -40,16 +38,21 @@ public class UserDA {
         }
         return  result;
     }
-    public List<User> getUsersByPass(String password){
 
-        List<User> result = new ArrayList<>();
-
-        for(User d:users){
-            if (d.getPass().equals(password)){
-                result.add(d);
+    public boolean usernameExists(String username) {
+        for (User user : users) {
+            if (user.getName().equals(username)) {
+                return true;
             }
         }
-        return  result;
+        return false;
+    }
+
+    // Method to add a new user
+    public void addUser(String username, String password) {
+        if (!usernameExists(username)) {
+            users.add(new User(username, password));
+        }
     }
 
     public List<User> getUsers() {
