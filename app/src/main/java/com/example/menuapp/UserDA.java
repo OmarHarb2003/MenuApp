@@ -54,12 +54,7 @@ public class UserDA {
             users.add(new User(username, password));
         }
     }
-    public void addUser(String username,String password){
 
-
-        users.add(new User(username,password));
-
-    }
 
     public List<User> getUsers() {
         return users;
